@@ -1,0 +1,693 @@
+Version 3.2 HI-TECH Software Intermediate Code
+"34 pwmhub.h
+[s S418 `ul 1 `ul 1 `*Vuc 1 `uc 1 ]
+[n S418 pwm_counter reset_value tick_count port pin ]
+"42
+[s S419 `ul 1 `ul 1 ]
+[n S419 pwm_period reset_value tick_count ]
+"48
+[s S420 `S418 -> -> 1 `i `ux `S419 1 ]
+[n S420 pwm_array pulse_array period ]
+"1768 /opt/microchip/xc8/v1.32/include/pic18f46k20.h
+[v _LATB `Vuc ~T0 @X0 0 e@3978 ]
+"11 servoTG9.h
+[s S435 `uc 1 `*ul 1 ]
+[n S435 servo currentAngle pwm_reset_value ]
+"6689 /opt/microchip/xc8/v1.32/include/pic18f46k20.h
+[v _OSCCON `Vuc ~T0 @X0 0 e@4051 ]
+"3301
+[v _OSCTUNE `Vuc ~T0 @X0 0 e@3995 ]
+"1642
+[s S83 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S83 . LATA0 LATA1 LATA2 LATA3 LATA4 LATA5 LATA6 LATA7 ]
+"1652
+[s S84 :1 `uc 1 ]
+[n S84 . LA0 ]
+"1655
+[s S85 :1 `uc 1 :1 `uc 1 ]
+[n S85 . . LA1 ]
+"1659
+[s S86 :2 `uc 1 :1 `uc 1 ]
+[n S86 . . LA2 ]
+"1663
+[s S87 :3 `uc 1 :1 `uc 1 ]
+[n S87 . . LA3 ]
+"1667
+[s S88 :4 `uc 1 :1 `uc 1 ]
+[n S88 . . LA4 ]
+"1671
+[s S89 :5 `uc 1 :1 `uc 1 ]
+[n S89 . . LA5 ]
+"1675
+[s S90 :6 `uc 1 :1 `uc 1 ]
+[n S90 . . LA6 ]
+"1679
+[s S91 :7 `uc 1 :1 `uc 1 ]
+[n S91 . . LA7 ]
+"1641
+[u S82 `S83 1 `S84 1 `S85 1 `S86 1 `S87 1 `S88 1 `S89 1 `S90 1 `S91 1 ]
+[n S82 . . . . . . . . . . ]
+"1684
+[v _LATAbits `VS82 ~T0 @X0 0 e@3977 ]
+"2277
+[s S133 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S133 . TRISA0 TRISA1 TRISA2 TRISA3 TRISA4 TRISA5 TRISA6 TRISA7 ]
+"2287
+[s S134 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S134 . RA0 RA1 RA2 RA3 RA4 RA5 RA6 RA7 ]
+"2276
+[u S132 `S133 1 `S134 1 ]
+[n S132 . . . ]
+"2298
+[v _TRISAbits `VS132 ~T0 @X0 0 e@3986 ]
+"2498
+[s S139 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S139 . TRISB0 TRISB1 TRISB2 TRISB3 TRISB4 TRISB5 TRISB6 TRISB7 ]
+"2508
+[s S140 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 :1 `uc 1 ]
+[n S140 . RB0 RB1 RB2 RB3 RB4 RB5 RB6 RB7 ]
+"2497
+[u S138 `S139 1 `S140 1 ]
+[n S138 . . . ]
+"2519
+[v _TRISBbits `VS138 ~T0 @X0 0 e@3987 ]
+[p mainexit ]
+"49 /opt/microchip/xc8/v1.32/include/pic18f46k20.h
+[; <" SSPMSK equ 0F77h ;# ">
+"110
+[; <" SLRCON equ 0F78h ;# ">
+"153
+[; <" CM2CON1 equ 0F79h ;# ">
+"191
+[; <" CM2CON0 equ 0F7Ah ;# ">
+"260
+[; <" CM1CON0 equ 0F7Bh ;# ">
+"329
+[; <" WPUB equ 0F7Ch ;# ">
+"390
+[; <" IOCB equ 0F7Dh ;# ">
+"428
+[; <" ANSEL equ 0F7Eh ;# ">
+"489
+[; <" ANSELH equ 0F7Fh ;# ">
+"532
+[; <" PORTA equ 0F80h ;# ">
+"769
+[; <" PORTB equ 0F81h ;# ">
+"976
+[; <" PORTC equ 0F82h ;# ">
+"1166
+[; <" PORTD equ 0F83h ;# ">
+"1307
+[; <" PORTE equ 0F84h ;# ">
+"1638
+[; <" LATA equ 0F89h ;# ">
+"1770
+[; <" LATB equ 0F8Ah ;# ">
+"1902
+[; <" LATC equ 0F8Bh ;# ">
+"2034
+[; <" LATD equ 0F8Ch ;# ">
+"2166
+[; <" LATE equ 0F8Dh ;# ">
+"2268
+[; <" TRISA equ 0F92h ;# ">
+"2273
+[; <" DDRA equ 0F92h ;# ">
+"2489
+[; <" TRISB equ 0F93h ;# ">
+"2494
+[; <" DDRB equ 0F93h ;# ">
+"2710
+[; <" TRISC equ 0F94h ;# ">
+"2715
+[; <" DDRC equ 0F94h ;# ">
+"2931
+[; <" TRISD equ 0F95h ;# ">
+"2936
+[; <" DDRD equ 0F95h ;# ">
+"3152
+[; <" TRISE equ 0F96h ;# ">
+"3157
+[; <" DDRE equ 0F96h ;# ">
+"3303
+[; <" OSCTUNE equ 0F9Bh ;# ">
+"3372
+[; <" PIE1 equ 0F9Dh ;# ">
+"3451
+[; <" PIR1 equ 0F9Eh ;# ">
+"3530
+[; <" IPR1 equ 0F9Fh ;# ">
+"3609
+[; <" PIE2 equ 0FA0h ;# ">
+"3688
+[; <" PIR2 equ 0FA1h ;# ">
+"3767
+[; <" IPR2 equ 0FA2h ;# ">
+"3846
+[; <" EECON1 equ 0FA6h ;# ">
+"3911
+[; <" EECON2 equ 0FA7h ;# ">
+"3917
+[; <" EEDATA equ 0FA8h ;# ">
+"3923
+[; <" EEADR equ 0FA9h ;# ">
+"3984
+[; <" EEADRH equ 0FAAh ;# ">
+"4009
+[; <" RCSTA equ 0FABh ;# ">
+"4014
+[; <" RCSTA1 equ 0FABh ;# ">
+"4218
+[; <" TXSTA equ 0FACh ;# ">
+"4223
+[; <" TXSTA1 equ 0FACh ;# ">
+"4515
+[; <" TXREG equ 0FADh ;# ">
+"4520
+[; <" TXREG1 equ 0FADh ;# ">
+"4526
+[; <" RCREG equ 0FAEh ;# ">
+"4531
+[; <" RCREG1 equ 0FAEh ;# ">
+"4537
+[; <" SPBRG equ 0FAFh ;# ">
+"4542
+[; <" SPBRG1 equ 0FAFh ;# ">
+"4548
+[; <" SPBRGH equ 0FB0h ;# ">
+"4554
+[; <" T3CON equ 0FB1h ;# ">
+"4667
+[; <" TMR3 equ 0FB2h ;# ">
+"4673
+[; <" TMR3L equ 0FB2h ;# ">
+"4679
+[; <" TMR3H equ 0FB3h ;# ">
+"4685
+[; <" CVRCON2 equ 0FB4h ;# ">
+"4711
+[; <" CVRCON equ 0FB5h ;# ">
+"4789
+[; <" ECCP1AS equ 0FB6h ;# ">
+"4870
+[; <" PWM1CON equ 0FB7h ;# ">
+"4939
+[; <" BAUDCON equ 0FB8h ;# ">
+"4944
+[; <" BAUDCTL equ 0FB8h ;# ">
+"5104
+[; <" PSTRCON equ 0FB9h ;# ">
+"5147
+[; <" CCP2CON equ 0FBAh ;# ">
+"5210
+[; <" CCPR2 equ 0FBBh ;# ">
+"5216
+[; <" CCPR2L equ 0FBBh ;# ">
+"5222
+[; <" CCPR2H equ 0FBCh ;# ">
+"5228
+[; <" CCP1CON equ 0FBDh ;# ">
+"5309
+[; <" CCPR1 equ 0FBEh ;# ">
+"5315
+[; <" CCPR1L equ 0FBEh ;# ">
+"5321
+[; <" CCPR1H equ 0FBFh ;# ">
+"5327
+[; <" ADCON2 equ 0FC0h ;# ">
+"5397
+[; <" ADCON1 equ 0FC1h ;# ">
+"5450
+[; <" ADCON0 equ 0FC2h ;# ">
+"5568
+[; <" ADRES equ 0FC3h ;# ">
+"5574
+[; <" ADRESL equ 0FC3h ;# ">
+"5580
+[; <" ADRESH equ 0FC4h ;# ">
+"5586
+[; <" SSPCON2 equ 0FC5h ;# ">
+"5647
+[; <" SSPCON1 equ 0FC6h ;# ">
+"5716
+[; <" SSPSTAT equ 0FC7h ;# ">
+"5944
+[; <" SSPADD equ 0FC8h ;# ">
+"5950
+[; <" SSPBUF equ 0FC9h ;# ">
+"5956
+[; <" T2CON equ 0FCAh ;# ">
+"6026
+[; <" PR2 equ 0FCBh ;# ">
+"6031
+[; <" MEMCON equ 0FCBh ;# ">
+"6135
+[; <" TMR2 equ 0FCCh ;# ">
+"6141
+[; <" T1CON equ 0FCDh ;# ">
+"6245
+[; <" TMR1 equ 0FCEh ;# ">
+"6251
+[; <" TMR1L equ 0FCEh ;# ">
+"6257
+[; <" TMR1H equ 0FCFh ;# ">
+"6263
+[; <" RCON equ 0FD0h ;# ">
+"6395
+[; <" WDTCON equ 0FD1h ;# ">
+"6422
+[; <" HLVDCON equ 0FD2h ;# ">
+"6427
+[; <" LVDCON equ 0FD2h ;# ">
+"6691
+[; <" OSCCON equ 0FD3h ;# ">
+"6767
+[; <" T0CON equ 0FD5h ;# ">
+"6836
+[; <" TMR0 equ 0FD6h ;# ">
+"6842
+[; <" TMR0L equ 0FD6h ;# ">
+"6848
+[; <" TMR0H equ 0FD7h ;# ">
+"6854
+[; <" STATUS equ 0FD8h ;# ">
+"6932
+[; <" FSR2 equ 0FD9h ;# ">
+"6938
+[; <" FSR2L equ 0FD9h ;# ">
+"6944
+[; <" FSR2H equ 0FDAh ;# ">
+"6950
+[; <" PLUSW2 equ 0FDBh ;# ">
+"6956
+[; <" PREINC2 equ 0FDCh ;# ">
+"6962
+[; <" POSTDEC2 equ 0FDDh ;# ">
+"6968
+[; <" POSTINC2 equ 0FDEh ;# ">
+"6974
+[; <" INDF2 equ 0FDFh ;# ">
+"6980
+[; <" BSR equ 0FE0h ;# ">
+"6986
+[; <" FSR1 equ 0FE1h ;# ">
+"6992
+[; <" FSR1L equ 0FE1h ;# ">
+"6998
+[; <" FSR1H equ 0FE2h ;# ">
+"7004
+[; <" PLUSW1 equ 0FE3h ;# ">
+"7010
+[; <" PREINC1 equ 0FE4h ;# ">
+"7016
+[; <" POSTDEC1 equ 0FE5h ;# ">
+"7022
+[; <" POSTINC1 equ 0FE6h ;# ">
+"7028
+[; <" INDF1 equ 0FE7h ;# ">
+"7034
+[; <" WREG equ 0FE8h ;# ">
+"7045
+[; <" FSR0 equ 0FE9h ;# ">
+"7051
+[; <" FSR0L equ 0FE9h ;# ">
+"7057
+[; <" FSR0H equ 0FEAh ;# ">
+"7063
+[; <" PLUSW0 equ 0FEBh ;# ">
+"7069
+[; <" PREINC0 equ 0FECh ;# ">
+"7075
+[; <" POSTDEC0 equ 0FEDh ;# ">
+"7081
+[; <" POSTINC0 equ 0FEEh ;# ">
+"7087
+[; <" INDF0 equ 0FEFh ;# ">
+"7093
+[; <" INTCON3 equ 0FF0h ;# ">
+"7184
+[; <" INTCON2 equ 0FF1h ;# ">
+"7253
+[; <" INTCON equ 0FF2h ;# ">
+"7389
+[; <" PROD equ 0FF3h ;# ">
+"7395
+[; <" PRODL equ 0FF3h ;# ">
+"7401
+[; <" PRODH equ 0FF4h ;# ">
+"7407
+[; <" TABLAT equ 0FF5h ;# ">
+"7415
+[; <" TBLPTR equ 0FF6h ;# ">
+"7421
+[; <" TBLPTRL equ 0FF6h ;# ">
+"7427
+[; <" TBLPTRH equ 0FF7h ;# ">
+"7433
+[; <" TBLPTRU equ 0FF8h ;# ">
+"7441
+[; <" PCLAT equ 0FF9h ;# ">
+"7448
+[; <" PC equ 0FF9h ;# ">
+"7454
+[; <" PCL equ 0FF9h ;# ">
+"7460
+[; <" PCLATH equ 0FFAh ;# ">
+"7466
+[; <" PCLATU equ 0FFBh ;# ">
+"7472
+[; <" STKPTR equ 0FFCh ;# ">
+"7545
+[; <" TOS equ 0FFDh ;# ">
+"7551
+[; <" TOSL equ 0FFDh ;# ">
+"7557
+[; <" TOSH equ 0FFEh ;# ">
+"7563
+[; <" TOSU equ 0FFFh ;# ">
+"9 macros.h
+[v _lat_set `(v ~T0 @X0 1 ef2`*Vuc`uc ]
+"10
+{
+[e :U _lat_set ]
+"9
+[v _lat `*Vuc ~T0 @X0 1 r1 ]
+[v _pin_number `uc ~T0 @X0 1 r2 ]
+"10
+[f ]
+"12
+[e = *U _lat -> | -> *U _lat `i << -> 1 `i _pin_number `uc ]
+"14
+[e :UE 415 ]
+}
+"16
+[v _lat_clear `(v ~T0 @X0 1 ef2`*Vuc`uc ]
+"17
+{
+[e :U _lat_clear ]
+"16
+[v _lat `*Vuc ~T0 @X0 1 r1 ]
+[v _pin_number `uc ~T0 @X0 1 r2 ]
+"17
+[f ]
+"19
+[e = *U _lat -> & -> *U _lat `i ~ << -> 1 `i _pin_number `uc ]
+"21
+[e :UE 416 ]
+}
+"23
+[v _lat_toggle `(v ~T0 @X0 1 ef2`*Vuc`uc ]
+"24
+{
+[e :U _lat_toggle ]
+"23
+[v _lat `*Vuc ~T0 @X0 1 r1 ]
+[v _pin_number `uc ~T0 @X0 1 r2 ]
+"24
+[f ]
+"26
+[e = *U _lat -> ^ -> *U _lat `i << -> 1 `i _pin_number `uc ]
+"28
+[e :UE 417 ]
+}
+"54 pwmhub.h
+[v _handle_tick `(v ~T0 @X0 1 ef1`*S420 ]
+"55
+{
+[e :U _handle_tick ]
+"54
+[v _pwmArray `*S420 ~T0 @X0 1 r1 ]
+"55
+[f ]
+"56
+[v _i `i ~T0 @X0 1 a ]
+"57
+[e = . . *U _pwmArray 1 1 -> -> -> 1 `i `l `ul ]
+"58
+[e -- . . *U _pwmArray 1 1 -> -> -> 1 `i `l `ul ]
+"59
+[e ( _lat_toggle (2 , &U _LATB -> -> 6 `i `uc ]
+"60
+[e $ ! <= . . *U _pwmArray 1 1 -> -> -> 0 `i `l `ul 422  ]
+"61
+{
+"64
+[e ( _lat_toggle (2 , . *U + &U . *U _pwmArray 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 2 . *U + &U . *U _pwmArray 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 3 ]
+"66
+[e = . . *U _pwmArray 1 1 . . *U _pwmArray 1 0 ]
+"68
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 1 `i 423  ]
+[e $U 424  ]
+"69
+[e :U 423 ]
+{
+"70
+[e = . *U + &U . *U _pwmArray 0 * -> -> _i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 1 . *U + &U . *U _pwmArray 0 * -> -> _i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 0 ]
+"73
+}
+"68
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 1 `i 423  ]
+[e :U 424 ]
+"73
+}
+"74
+}
+[e $U 426  ]
+"76
+[e :U 422 ]
+"77
+{
+"79
+{
+[e = _i -> 0 `i ]
+[e $ < _i -> 1 `i 427  ]
+[e $U 428  ]
+"80
+[e :U 427 ]
+{
+"83
+[e ? == . *U + &U . *U _pwmArray 0 * -> -> _i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 1 -> -> -> 1 `i `l `ul : -> -> -> 1 `i `l `ul -- . *U + &U . *U _pwmArray 0 * -> -> _i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 1 -> -> -> 1 `i `l `ul ]
+"84
+}
+"79
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 1 `i 427  ]
+[e :U 428 ]
+"84
+}
+"85
+}
+[e :U 426 ]
+"86
+[e :UE 421 ]
+}
+"88
+[v _initialize_pwm `(v ~T0 @X0 1 ef1`*S420 ]
+"89
+{
+[e :U _initialize_pwm ]
+"88
+[v _pwmArray `*S420 ~T0 @X0 1 r1 ]
+"89
+[f ]
+"91
+[e = . . *U _pwmArray 1 1 . . *U _pwmArray 1 0 ]
+"92
+{
+[v _i `i ~T0 @X0 1 a ]
+[e = _i -> 0 `i ]
+[e $ < _i -> 1 `i 431  ]
+[e $U 432  ]
+"93
+[e :U 431 ]
+{
+"94
+[e = . *U + &U . *U _pwmArray 0 * -> -> _i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 1 . *U + &U . *U _pwmArray 0 * -> -> _i `ui `ux -> -> # *U &U . *U _pwmArray 0 `ui `ux 0 ]
+"97
+}
+"92
+[e ++ _i -> 1 `i ]
+[e $ < _i -> 1 `i 431  ]
+[e :U 432 ]
+"97
+}
+"98
+[e :UE 430 ]
+}
+"100
+[v _initialize_pwm_pulse `(v ~T0 @X0 1 ef4`*S418`ul`*Vuc`ui ]
+"101
+{
+[e :U _initialize_pwm_pulse ]
+"100
+[v _p_counter `*S418 ~T0 @X0 1 r1 ]
+[v _reset_value `ul ~T0 @X0 1 r2 ]
+[v _p_port `*Vuc ~T0 @X0 1 r3 ]
+[v _pin `ui ~T0 @X0 1 r4 ]
+"101
+[f ]
+"102
+[e = . *U _p_counter 0 _reset_value ]
+"103
+[e = . *U _p_counter 2 _p_port ]
+"104
+[e = . *U _p_counter 3 -> _pin `uc ]
+"105
+[e :UE 434 ]
+}
+"16 servoTG9.h
+[v _set_angle `(v ~T0 @X0 1 ef2`*S435`i ]
+{
+[e :U _set_angle ]
+[v _act `*S435 ~T0 @X0 1 r1 ]
+[v _angle `i ~T0 @X0 1 r2 ]
+[f ]
+"17
+[e = . *U _act 0 -> _angle `uc ]
+"18
+[e $U 438  ]
+{
+"19
+[e :U 439 ]
+"20
+[e = *U . *U _act 1 -> -> -> 2 `i `l `ul ]
+"21
+[e $U 437  ]
+"22
+[e :U 440 ]
+"23
+[e = *U . *U _act 1 -> -> -> 4 `i `l `ul ]
+"24
+[e $U 437  ]
+"25
+[e :U 441 ]
+"26
+[e = *U . *U _act 1 -> -> -> 6 `i `l `ul ]
+"27
+[e $U 437  ]
+"28
+}
+[e $U 437  ]
+"18
+[e :U 438 ]
+[e [\ _angle , $ -U -> 60 `i 439
+ , $ -> 0 `i 440
+ , $ -> 60 `i 441
+ 437 ]
+"28
+[e :U 437 ]
+"30
+[e :UE 436 ]
+}
+"40 yawTimer.c
+[v _pwm_module `S420 ~T0 @X0 1 e ]
+"41
+[v _yaw_servo `S435 ~T0 @X0 1 e ]
+"42
+[v _tick_flag `Vuc ~T0 @X0 1 e ]
+[i _tick_flag
+-> -> 0 `i `uc
+]
+"46
+[v _initializeOscillator `(v ~T0 @X0 1 ef ]
+"47
+{
+[e :U _initializeOscillator ]
+[f ]
+"54
+[e = _OSCCON -> -> 216 `i `uc ]
+"63
+[e = _OSCTUNE -> -> 128 `i `uc ]
+"64
+[e :UE 442 ]
+}
+"67
+[v _initializeServo1 `(v ~T0 @X0 1 ef ]
+"68
+{
+[e :U _initializeServo1 ]
+[f ]
+"71
+[e = . . _pwm_module 1 0 -> -> -> 20 `i `l `ul ]
+"73
+[e ( _initialize_pwm_pulse (4 , , , &U *U + &U . _pwm_module 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _pwm_module 0 `ui `ux -> -> / -> 20 `i -> 2 `i `l `ul &U _LATB -> -> 7 `i `ui ]
+"74
+[e ( _initialize_pwm (1 &U _pwm_module ]
+"75
+[e = . . _LATAbits 6 1 -> -> 1 `i `uc ]
+"78
+[e = . _yaw_servo 1 &U . *U + &U . _pwm_module 0 * -> -> -> 0 `i `ui `ux -> -> # *U &U . _pwm_module 0 `ui `ux 0 ]
+"81
+[e :UE 443 ]
+}
+"84
+[v _initialize `(v ~T0 @X0 1 ef ]
+"85
+{
+[e :U _initialize ]
+[f ]
+"88
+[e = . . _TRISAbits 1 0 -> -> 1 `i `uc ]
+"89
+[e = . . _TRISAbits 1 1 -> -> 1 `i `uc ]
+"90
+[e = . . _TRISAbits 1 2 -> -> 1 `i `uc ]
+"91
+[e = . . _TRISAbits 1 5 -> -> 0 `i `uc ]
+"92
+[e = . . _TRISBbits 1 0 -> -> 1 `i `uc ]
+"93
+[e = . . _TRISBbits 1 7 -> -> 0 `i `uc ]
+"94
+[e = . . _TRISBbits 1 6 -> -> 0 `i `uc ]
+"97
+[e ( _initializeOscillator ..  ]
+"100
+[e :UE 444 ]
+}
+"102
+[v _main `(i ~T0 @X0 1 ef ]
+"103
+{
+[e :U _main ]
+[f ]
+"104
+[e ( _initialize ..  ]
+"106
+[e = . . _TRISBbits 1 2 -> -> 0 `i `uc ]
+"107
+[e ( _lat_clear (2 , &U _LATB -> -> 2 `i `uc ]
+"110
+[e = _tick_flag -> -> 255 `i `uc ]
+"111
+[e :U 447 ]
+"112
+{
+"113
+[e -- _tick_flag -> -> 1 `i `uc ]
+"115
+[e $ ! == -> _tick_flag `i -> 1 `i 449  ]
+"116
+{
+"117
+[e -- _tick_flag -> -> 1 `i `uc ]
+"118
+[e ( _lat_set (2 , &U _LATB -> -> 2 `i `uc ]
+"122
+[e ( _lat_toggle (2 , &U _LATB -> -> 6 `i `uc ]
+"123
+}
+[e :U 449 ]
+"125
+}
+[e :U 446 ]
+"111
+[e $U 447  ]
+[e :U 448 ]
+"126
+[e :UE 445 ]
+}

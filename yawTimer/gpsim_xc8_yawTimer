@@ -1,0 +1,1 @@
+gpsim -p p18f4620 yawTimer.hex

@@ -1,0 +1,8 @@
+_initializeOscillator: CODE, 65270 0 10
+_lat_clear: CODE, 65418 0 50
+_main: CODE, 65468 0 68
+_lat_toggle: CODE, 65370 0 48
+__initialization: CODE, 65300 0 12
+_initialize: CODE, 65280 0 20
+_lat_set: CODE, 65322 0 48
+Total: 256
