@@ -1,0 +1,65 @@
+     1: /* $Id: wcmdxlcd.c,v 1.1 2003/12/09 22:43:28 GrosbaJ Exp $ */
+     2: #include <p18cxxx.h>
+     3: #include <xlcd.h>
+     4: 
+     5: 
+     6: 
+     7: /********************************************************************
+     8: *       Function Name:  WriteCmdXLCD                                *
+     9: *       Return Value:   void                                        *
+    10: *       Parameters:     cmd: command to send to LCD                 *
+    11: *       Description:    This routine writes a command to the Hitachi*
+    12: *                       HD44780 LCD controller. The user must check *
+    13: *                       to see if the LCD controller is busy before *
+    14: *                       calling this routine.                       *
+    15: ********************************************************************/
+    16: void WriteCmdXLCD(unsigned char cmd)
+    17: {
+    18: #ifdef BIT8                             // 8-bit interface
+    19:         TRIS_DATA_PORT = 0;             // Data port output
+    20:         DATA_PORT = cmd;                // Write command to data port
+    21:         RW_PIN = 0;                     // Set the control signals
+    22:         RS_PIN = 0;                     // for sending a command
+    23:         DelayFor18TCY();
+    24:         E_PIN = 1;                      // Clock the command in
+    25:         DelayFor18TCY();
+    26:         E_PIN = 0;
+    27:         DelayFor18TCY();
+    28:         TRIS_DATA_PORT = 0xff;          // Data port input
+    29: #else                                   // 4-bit interface
+    30: #ifdef UPPER                            // Upper nibble interface
+    31:         TRIS_DATA_PORT &= 0x0f;
+    32:         DATA_PORT &= 0x0f;
+    33:         DATA_PORT |= cmd&0xf0;
+    34: #else                                   // Lower nibble interface
+    35:         TRIS_DATA_PORT &= 0xf0;
+    36:         DATA_PORT &= 0xf0;
+    37:         DATA_PORT |= (cmd>>4)&0x0f;
+    38: #endif
+    39:         RW_PIN = 0;                     // Set control signals for command
+    40:         RS_PIN = 0;
+    41:         DelayFor18TCY();
+    42:         E_PIN = 1;                      // Clock command in
+    43:         DelayFor18TCY();
+    44:         E_PIN = 0;
+    45: #ifdef UPPER                            // Upper nibble interface
+    46:         DATA_PORT &= 0x0f;
+    47:         DATA_PORT |= (cmd<<4)&0xf0;
+    48: #else                                   // Lower nibble interface
+    49:         DATA_PORT &= 0xf0;
+    50:         DATA_PORT |= cmd&0x0f;
+    51: #endif
+    52:         DelayFor18TCY();
+    53:         E_PIN = 1;                      // Clock command in
+    54:         DelayFor18TCY();
+    55:         E_PIN = 0;
+    56: #ifdef UPPER                            // Make data nibble input
+    57:         TRIS_DATA_PORT |= 0xf0;
+    58: #else
+    59:         TRIS_DATA_PORT |= 0x0f;
+    60: #endif
+    61: #endif
+    62:         
+    63:         return;
+    64: }
+    65: 

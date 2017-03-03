@@ -1,0 +1,1 @@
+extern long int addup(int param1, int param2);

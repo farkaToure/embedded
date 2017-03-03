@@ -1,0 +1,1 @@
+ wcmdxlcd.d  wcmdxlcd.p1:  ./XLCD/wcmdxlcd.c

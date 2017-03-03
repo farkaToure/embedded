@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="pic18platform" />
+		<Option makefile="Makefile.mak" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="/home/fede/lenovo/Projects/pic18platform" />
+		<Option pch_mode="2" />
+		<Option compiler="xc8" />
+		<MakeCommands>
+			<Build command="" />
+			<CompileFile command="" />
+			<Clean command="" />
+			<DistClean command="" />
+			<AskRebuildNeeded command="" />
+			<SilentBuild command=" &gt; $(CMD_NULL)" />
+		</MakeCommands>
+		<Build>
+			<Target title="Release">
+				<Option output="/bin/Release/pic18platform" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="xc8" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+			<Target title="BurnFirmware">
+				<Option output="pic18platform" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="xc8" />
+			</Target>
+			<Target title="Simulation">
+				<Option output="/bin/Simulation/pic18platform" prefix_auto="1" extension_auto="1" />
+				<Option type="0" />
+				<Option compiler="xc8" />
+			</Target>
+		</Build>
+		<Unit filename="macros.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="pic18platform.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="platform.h">
+			<Option target="Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

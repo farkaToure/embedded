@@ -1,0 +1,36 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[utf8]{inputenc}
+
+% Title Page
+\title{PWM Hub: User Guide}
+\author{Federico Balaguer}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+PWM Hub is a source-base library that makes it possible to produce several PWM signals. 
+
+Pulse-Width Modulation is a technique used to encode a message into a pulsing signal. It is a technique commonly used on microcontroller programming. A PWM solution usually is evaluated given two aspects: number of pulse outputs and precision of the duty-cycle. 
+
+Microcontrollers usually include a module that implements PWM. A PWM module sometimes comes short as a solution because of two reasons. First, it implements only a pair of pulse outputs. Second, the precision of the duty-cycle are bound to the internal oscillator settings.
+
+PWM Hub is a library that implements PWM module by software that makes it possible to have a number of pulse outputs and it decouples the precision of the duty-cycle from the frequency of the internal oscillator.
+
+The PWM signal has the following parameters:
+\begin{description}
+  \item[Period] It acts as a reference to the output signal, the output signal will be on high state at most the period time.     
+  \item[Output Signal] It has two possible states: High and Low. It represents a given datum as a high state time. 
+  \item[Duty-cycle] It is the relationship betwen Output Signal high state time and the Period.
+  \item[Dead bandwidth] It is the minimum time that represents different data.
+\end{description}
+
+A problem araises when the system uses high frequency oscillator fuse and the PWM spec has a small Period.   
+
+
+\section{Instalation}
+
+\section{Configuration and Use}
+
+\end{document}          

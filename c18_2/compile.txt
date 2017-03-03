@@ -1,0 +1,6 @@
+picc18 --ERRFORMAT --WARNFORMAT --MSGFORMAT --IDE=mplab -Q -C --CHIP=18F46K20 -v -I./ --pass1 %I 
+
+picc18  -Q -C   --CHIP=18F46K20  -I./ --pass1 ./src/addup.c ./src/increment.c
+
+picc18 --CHIP=18F46K20 -I./  c18_2.p1 addup.p1 increment.p1
+

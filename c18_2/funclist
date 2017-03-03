@@ -1,0 +1,5 @@
+_Delay1KTCYx: CODE, 65432 0 16
+_main: CODE, 65448 0 88
+_addup: CODE, 65416 0 2
+_increment: CODE, 65424 0 8
+Total: 114

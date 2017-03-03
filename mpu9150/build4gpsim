@@ -1,0 +1,3 @@
+xc8 --ERRFORMAT --WARNFORMAT --MSGFORMAT  --CHIP=18F4620  -v -I./  mpu9150.c
+mv *.cmf *.cof *.d *.p1 *.pre /tmp
+

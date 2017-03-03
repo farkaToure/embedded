@@ -1,0 +1,41 @@
+     1: // *******************************************************************
+     2: //             MCE Starter Kit Student Advanced
+     3: //             Autor: Fernando R. Tagliaferri
+     4: //----------------------------------------------------------------------------------------------------
+     5: // Archivo Nombre:  Demo46k20v1.c
+     6: // Processor:       PIC18F46k20
+     7: // Compiler:        C18
+     8: // Company:         Mcelectronics.
+     9: // Version:         1.0
+    10: // *******************************************************************
+    11: 
+    12: 
+    13: 
+    14: //PIC18F46K20
+    15: #pragma config FOSC = HS, FCMEN = OFF, IESO = OFF                       // CONFIG1H
+    16: #pragma config PWRT = OFF, BOREN = OFF, BORV = 30                        // CONFIG2L
+    17: #pragma config WDTEN = OFF, WDTPS = 32768                                    // CONFIG2H
+    18: #pragma config MCLRE = ON, LPT1OSC = OFF, PBADEN = OFF, CCP2MX = PORTC       // CONFIG3H
+    19: #pragma config STVREN = ON, LVP = OFF, XINST = OFF                           // CONFIG4L
+    20: #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF                   // CONFIG5L
+    21: #pragma config CPB = OFF, CPD = OFF                                         // CONFIG5H
+    22: #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF                // CONFIG6L
+    23: #pragma config WRTB = OFF, WRTC = OFF, WRTD = OFF                            // CONFIG6H
+    24: #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF           // CONFIG7L
+    25: #pragma config EBTRB = OFF                                                   // CONFIG7H
+    26: 
+    27: /* Includes */
+    28: #include "p18f4620.h"
+    29: 
+    30: /* Programa Princicpal ***/
+    31: #pragma code
+    32: void main(void)
+    33: {
+    34:         ADCON1=0x0F;         // Configuramos todos los pines 
+    35:                         // como digitales
+    36:         ANSEL = 0;
+    37:         ANSELH = 0;
+    38:         TRISB = 0b00000000;
+    39:         LATBbits.LATB7=1;
+    40:         while (1);
+    41: }

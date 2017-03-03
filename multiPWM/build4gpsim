@@ -1,0 +1,3 @@
+xc8 --ERRFORMAT --WARNFORMAT --MSGFORMAT  --CHIP=18F4620  -v -I./  xc8_pwm_timer.c
+mv *.cmf *.cof *.d *.p1 *.pre /tmp
+

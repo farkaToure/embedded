@@ -1,0 +1,15 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F46K20</device>
+    <tool>custom</tool>
+    <programmer>custom</programmer>
+    <files>
+      <item>xc8_pwm_timer.c</item>
+      <item>platform.h</item>
+      <item>macros.h</item>
+      <item>pwmhub.h</item>
+    </files>
+  </general>
+  <editors/>
+</piklab>

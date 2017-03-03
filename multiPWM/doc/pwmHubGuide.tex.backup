@@ -1,0 +1,18 @@
+\documentclass[a4paper,10pt]{report}
+\usepackage[utf8]{inputenc}
+
+% Title Page
+\title{PWM Hub: User Guide}
+\author{Federico Balaguer}
+
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+\section{Instalation}
+
+\section{Configuration and Use}
+
+\end{document}          

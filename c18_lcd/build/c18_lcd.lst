@@ -1,0 +1,111 @@
+     1: // *******************************************************************
+     2: //                              MCE Starter Kit Student Advanced
+     3: //                                              Demo version 1.00
+     4: //----------------------------------------------------------------------------------------------------
+     5: // Archivo Nombre:  Demo4620v1.c
+     6: // Dependencies:    p18f4620.h
+     7: //              Demo4620v1.h
+     8: //                  delays.h
+     9: //                  xlcd.h
+    10: //                  stdlib.h
+    11: // Processor:       PIC18F46k20
+    12: // Compiler:        C18
+    13: // Company:         Mcelectronics.
+    14: // Version:         1.0
+    15: // *******************************************************************
+    16: 
+    17:  
+    18: 
+    19: //PIC18F46K20
+    20: #pragma config FOSC = HS, FCMEN = OFF, IESO = OFF                       // CONFIG1H
+    21: #pragma config PWRT = OFF, BOREN = OFF, BORV = 30                        // CONFIG2L
+    22: #pragma config WDTEN = OFF, WDTPS = 32768                                    // CONFIG2H
+    23: #pragma config MCLRE = ON, LPT1OSC = OFF, PBADEN = OFF, CCP2MX = PORTC       // CONFIG3H
+    24: #pragma config STVREN = ON, LVP = OFF, XINST = OFF                       // CONFIG4L
+    25: #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF                   // CONFIG5L
+    26: #pragma config CPB = OFF, CPD = OFF                                         // CONFIG5H
+    27: #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF                // CONFIG6L
+    28: #pragma config WRTB = OFF, WRTC = OFF, WRTD = OFF                            // CONFIG6H
+    29: #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF           // CONFIG7L
+    30: #pragma config EBTRB = OFF                                                   // CONFIG7H
+    31: /* Includes */
+    32: 
+    33: #include "p18f46k20.h"
+    34: #include "delays.h"
+    35: 
+    36: 
+    37: 
+    38: #include "stdlib.h" //Libreria que contiene la funcion itoa
+    39: 
+    40: #include <xlcd.h>//Lireria modificada par la placa MCE Starter Kit Student y Student Advanced
+    41: 
+    42: /* Programa Princicpal ***/
+    43: //#pragma code
+    44: 
+    45: 
+    46: 
+    47: #define bitset(var, bitno) ((var) |= 1UL << (bitno))
+    48: #define bitclr(var, bitno) ((var) &= ~(1UL << (bitno))) 
+    49: 
+    50: void main(void)
+    51: {
+    52:         ADCON1=0x0F;                    // Configuramos todos los pines 
+    53:                                                         // como digitales
+    54:         ANSEL = 0;
+    55:         ANSELH = 0;
+    56:         TRISA = 0b00000111;     // PORTA bit 0, 1 y 2 entrada
+    57:         TRISD = 0b00000000;             // PORTD salida
+    58: 
+    59:         Delay1KTCYx(10);                //Retardo para iniciar el LCD
+    60:         Delay1KTCYx(10);                //Retardo para iniciar el LCD
+    61: 
+    62:         // Secuecia de mensajes de inicio
+    63:         OpenXLCD( FOUR_BIT & LINES_5X7); //Inicializamos LCD
+    64:         WriteCmdXLCD(CLEAR_DISPLAY);
+    65:         putrsXLCD("Juan y Manu ");      // Enviamos mensaje al LCD
+    66:         Delay1KTCYx(10);        
+    67:         //WriteCmdXLCD(CURSOR_OFF & BLINK_OFF);
+    68:         WriteCmdXLCD(CURSOR_OFF);
+    69:         // Cambiamos de linea
+    70:         WriteCmdXLCD(NEXT_LINE);                // Cambiamos de linea
+    71:         putrsXLCD("Funciona...");       // Enviamos mensaje al LCD
+    72:         // Una vez escrito el mensaje, borramos el cursor y el
+    73:         // parpadeo del mismo
+    74:         //WriteCmdXLCD(CURSOR_OFF & BLINK_OFF);
+    75:         Delay10KTCYx(500);              //Retardo de 1 segundo(1.000.000 de instrucciones)
+    76:         WriteCmdXLCD(BLINK_OFF);
+    77: //      WriteCmdXLCD(CLEAR_DISPLAY);    // Borramos Display
+    78: //      putrsXLCD("Esta vivo.......");  // Enviamos mensaje al LCD
+    79: //      WriteCmdXLCD(CURSOR_OFF & BLINK_OFF);
+    80:         Delay10KTCYx(100);              //Retardo de 1 segundo(1.000.000 de instrucciones)
+    81:                 
+    82:         WriteCmdXLCD(CURSOR_OFF & BLINK_OFF );
+    83:         while(1){}
+    84:           
+    85:         
+    86: }       
+    87: 
+    88: 
+    89: 
+    90: 
+    91: void DelayFor18TCY( void )
+    92: {
+    93:         Delay100TCYx(20);       // Retardo de 100uSeg
+    94: }
+    95: 
+    96: void DelayPORXLCD(void)
+    97: {
+    98:         Delay1KTCYx(30);        // Delay de 15mS
+    99:                                                 // ciclos = (TimeDelay * Fosc)/4
+   100:                                                 // ciclos = (15mS * 4Mhz)/4
+   101:                                                 // ciclos = 15000
+   102: }
+   103: 
+   104: void DelayXLCD(void)
+   105: {
+   106:         Delay1KTCYx(10);                // Delay de 5mS
+   107:                                                 // ciclos = (TimeDelay * Fosc)/4
+   108:                                                 // ciclos = (5mS * 4Mhz)/4
+   109:                                                 // ciclos = 5000
+   110: }
+   111: 

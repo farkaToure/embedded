@@ -1,0 +1,1 @@
+pk2cmd -pPIC18F46K20 -m -r -w -jn -fc18_2.hex

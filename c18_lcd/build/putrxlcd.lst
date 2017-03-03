@@ -1,0 +1,27 @@
+     1: /* $Id: putrxlcd.c,v 1.1 2003/12/09 22:43:28 GrosbaJ Exp $ */
+     2: #include <p18cxxx.h>
+     3: #include <xlcd.h>
+     4: 
+     5: /********************************************************************
+     6: *       Function Name:  putrsXLCD
+     7: *       Return Value:   void
+     8: *       Parameters:     buffer: pointer to string
+     9: *       Description:    This routine writes a string of bytes to the
+    10: *                       Hitachi HD44780 LCD controller. The user
+    11: *                       must check to see if the LCD controller is
+    12: *                       busy before calling this routine. The data
+    13: *                       is written to the character generator RAM or
+    14: *                       the display data RAM depending on what the
+    15: *                       previous SetxxRamAddr routine was called.
+    16: ********************************************************************/
+    17: void putrsXLCD(const char *buffer)
+    18: {
+    19:         while(*buffer)                  // Write data to LCD up to null
+    20:         {
+    21:                 while(BusyXLCD());      // Wait while LCD is busy
+    22:                 WriteDataXLCD(*buffer); // Write character to LCD
+    23:                 buffer++;               // Increment buffer
+    24:         }
+    25:         return;
+    26: }
+    27: 

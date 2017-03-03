@@ -1,0 +1,18 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F46K20</device>
+    <tool>c18</tool>
+    <programmer>custom</programmer>
+    <files>
+      <item>c18_lcd.c</item>
+      <item>light_kalman.h</item>
+    </files>
+    <opened_files>
+      <item>c18_lcd.c</item>
+      <item>light_kalman.h</item>
+      <item>/Projects/piklabworkspace/mpu9150/mpu9150.c</item>
+    </opened_files>
+  </general>
+  <editors/>
+</piklab>

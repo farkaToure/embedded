@@ -1,0 +1,5 @@
+     1: #include <addup.h>
+     2: 
+     3: long int increment(int param1){
+     4:   return param1++ ;
+     5: }

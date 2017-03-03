@@ -1,0 +1,15 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F46K20</device>
+    <tool>custom</tool>
+    <programmer>custom</programmer>
+    <files>
+      <item>mpu9150.c</item>
+    </files>
+    <opened_files>
+      <item>mpu9150.c</item>
+    </opened_files>
+  </general>
+  <editors/>
+</piklab>

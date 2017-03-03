@@ -1,0 +1,57 @@
+     1: /* $Id: readdata.c,v 1.1 2003/12/09 22:43:28 GrosbaJ Exp $ */
+     2: #include <p18cxxx.h>
+     3: #include <xlcd.h>
+     4: 
+     5: /********************************************************************
+     6: *       Function Name:  ReadDataXLCD                                *
+     7: *       Return Value:   char: data byte from LCD controller         *
+     8: *       Parameters:     void                                        *
+     9: *       Description:    This routine reads a data byte from the     *
+    10: *                       Hitachi HD44780 LCD controller. The user    *
+    11: *                       must check to see if the LCD controller is  *
+    12: *                       busy before calling this routine. The data  *
+    13: *                       is read from the character generator RAM or *
+    14: *                       the display data RAM depending on what the  *
+    15: *                       previous SetxxRamAddr routine was called.   *
+    16: ********************************************************************/
+    17: char ReadDataXLCD(void)
+    18: {
+    19:         char data;
+    20: 
+    21: #ifdef BIT8                             // 8-bit interface
+    22:         RS_PIN = 1;                     // Set the control bits
+    23:         RW_PIN = 1;
+    24:         DelayFor18TCY();
+    25:         E_PIN = 1;                      // Clock the data out of the LCD
+    26:         DelayFor18TCY();
+    27:         data = DATA_PORT;               // Read the data
+    28:         E_PIN = 0;
+    29:         RS_PIN = 0;                     // Reset the control bits
+    30:         RW_PIN = 0;
+    31: #else                                   // 4-bit interface
+    32:         RW_PIN = 1;
+    33:         RS_PIN = 1;
+    34:         DelayFor18TCY();
+    35:         E_PIN = 1;                      // Clock the data out of the LCD
+    36:         DelayFor18TCY();
+    37: #ifdef UPPER                            // Upper nibble interface
+    38:         data = DATA_PORT&0xf0;          // Read the upper nibble of data
+    39: #else                                   // Lower nibble interface
+    40:         data = (DATA_PORT<<4)&0xf0;     // read the upper nibble of data
+    41: #endif
+    42:         E_PIN = 0;                      // Reset the clock line
+    43:         DelayFor18TCY();
+    44:         E_PIN = 1;                      // Clock the next nibble out of the LCD
+    45:         DelayFor18TCY();
+    46: #ifdef UPPER                            // Upper nibble interface
+    47:         data |= (DATA_PORT>>4)&0x0f;    // Read the lower nibble of data
+    48: #else                                   // Lower nibble interface
+    49:         data |= DATA_PORT&0x0f;         // Read the lower nibble of data
+    50: #endif
+    51:         E_PIN = 0;                                      
+    52:         RS_PIN = 0;                     // Reset the control bits
+    53:         RW_PIN = 0;
+    54: #endif
+    55:         return(data);                   // Return the data byte
+    56: }
+    57: 

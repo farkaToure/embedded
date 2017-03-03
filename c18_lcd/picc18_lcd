@@ -1,0 +1,4 @@
+picc18 --ERRFORMAT --WARNFORMAT --MSGFORMAT --IDE=mplab --CHIP=18F46K20  -v -I/home/federico/Projects/piklabworkspace/c18_lcd/  --pass1 c18_lcd.c 
+picc18 --ERRFORMAT --WARNFORMAT --MSGFORMAT --IDE=mplab --CHIP=18F46K20 -DUPPER -v -I/home/federico/Projects/piklabworkspace/c18_lcd/  --pass1  ./XLCD/busyxlcd.c ./XLCD/openxlcd.c ./XLCD/putrxlcd.c ./XLCD/putsxlcd.c ./XLCD/readaddr.c ./XLCD/readdata.c ./XLCD/setcgram.c ./XLCD/setddram.c ./XLCD/wcmdxlcd.c ./XLCD/writdata.c
+picc18  --CHIP=18F46K20 -v -DUPPER -I./ c18_lcd.p1 busyxlcd.p1 openxlcd.p1 putsxlcd.p1 putrxlcd.p1 readaddr.p1 readdata.p1 setcgram.p1 setddram.p1 wcmdxlcd.p1 writdata.p1
+mv *.d *.lst *.p1 *.pre *.as *.hxl *.obj *.s* build/

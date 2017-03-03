@@ -1,0 +1,15 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F46K20</device>
+    <tool>picc18</tool>
+    <programmer>gpsim</programmer>
+    <files>
+      <item>ejemploC18_1.c</item>
+    </files>
+    <opened_files>
+      <item>ejemploC18_1.c</item>
+    </opened_files>
+  </general>
+  <editors/>
+</piklab>

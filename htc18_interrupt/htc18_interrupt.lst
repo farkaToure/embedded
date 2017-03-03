@@ -1,0 +1,61 @@
+     1: 
+     2:  #include "htc.h"
+     3: 
+     4: //PIC18F46K20
+     5: #pragma config FOSC = HS, FCMEN = OFF, IESO = OFF                       // CONFIG1H HS
+     6: #pragma config PWRT = OFF, BOREN = OFF, BORV = 30                        // CONFIG2L
+     7: #pragma config WDTEN = OFF, WDTPS = 32768                                    // CONFIG2H
+     8: #pragma config MCLRE = ON, LPT1OSC = OFF, PBADEN = OFF, CCP2MX = PORTC       // CONFIG3H
+     9: #pragma config STVREN = ON, LVP = OFF, XINST = OFF                       // CONFIG4L
+    10: #pragma config CP0 = OFF, CP1 = OFF, CP2 = OFF, CP3 = OFF                   // CONFIG5L
+    11: #pragma config CPB = OFF, CPD = OFF                                         // CONFIG5H
+    12: #pragma config WRT0 = OFF, WRT1 = OFF, WRT2 = OFF, WRT3 = OFF                // CONFIG6L
+    13: #pragma config WRTB = OFF, WRTC = OFF, WRTD = OFF                            // CONFIG6H
+    14: #pragma config EBTR0 = OFF, EBTR1 = OFF, EBTR2 = OFF, EBTR3 = OFF           // CONFIG7L
+    15: #pragma config EBTRB = OFF                                                   // CONFIG7H
+    16: /* Includes */
+    17: 
+    18: #include "p18f46k20.h"
+    19: #include "delays.h"
+    20: 
+    21: #include "stdlib.h" //Libreria que contiene la funcion itoa
+    22: 
+    23: #include <xlcd.h>//Lireria modificada par la placa MCE Starter Kit Student y Student Advanced
+    24: 
+    25: #define bitset(var, bitno) ((var) |= 1UL << (bitno))
+    26: #define bitclr(var, bitno) ((var) &= ~(1UL << (bitno))) 
+    27: #define bittoggle(var, bitno) var ^= (1UL << bitno)
+    28: 
+    29: void interrupt isr() {                                                                                                         /* interrupt service routine */
+    30:    
+    31:   if(T0IF){
+    32:     T0IF = 0;// Clear the Timer 0 interrupt.
+    33:     bittoggle(PORTB,1); // Toggle the state of the LSB of the port bits
+    34:   }
+    35: }
+    36: 
+    37: void main() {
+    38:     
+    39:   //TRISA = 0x00;       // All Port A latch outputs are enabled.
+    40: 
+    41:   T0CS = 0;     // Clear to enable timer mode.
+    42:   PSA = 0;      // Clear to assign prescaler to Timer 0.
+    43:   T0PS2 = 1;    // Set up prescaler   
+    44:   T0PS1 = 1;
+    45:   T0PS0 = 1;
+    46: 
+    47:   INTCON = 0;   // Clear interrupt flag bits.
+    48:   GIE = 1;      // Enable all interrupts.
+    49:   T0IE = 1;     // Set Timer 0 to 0.  
+    50:   TMR0 = 0;     // Enable peripheral interrupts.  
+    51:   
+    52:   bitclr(TRISB, 1); 
+    53:   bitclr(TRISB, 2);
+    54:     
+    55:   bitset(PORTB, 2);  
+    56:   while(1);
+    57:   
+    58: }
+    59: 
+    60: 
+    61: 

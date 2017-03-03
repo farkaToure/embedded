@@ -1,0 +1,72 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F46K20</device>
+    <tool>custom</tool>
+    <programmer>gpsim</programmer>
+    <files>
+      <item>c18_lcd.c</item>
+    </files>
+    <description/>
+    <version>0.1</version>
+    <output_type>executable</output_type>
+    <custom_shell_commands>
+      <item>picc18 --ERRFORMAT --WARNFORMAT --MSGFORMAT --IDE=mplab --CHIP=18F46K20  -v -I/home/federico/Projects/piklabworkspace/c18_lcd/  --pass1 c18_lcd.c </item>
+      <item>picc18 --ERRFORMAT --WARNFORMAT --MSGFORMAT --IDE=mplab --CHIP=18F46K20 -DUPPER -v -I/home/federico/Projects/piklabworkspace/c18_lcd/  --pass1  ./XLCD/busyxlcd.c ./XLCD/openxlcd.c ./XLCD/putrxlcd.c ./XLCD/putsxlcd.c ./XLCD/readaddr.c ./XLCD/readdata.c ./XLCD/setcgram.c ./XLCD/setddram.c ./XLCD/wcmdxlcd.c ./XLCD/writdata.c</item>
+      <item>picc18  --CHIP=18F46K20 -v -DUPPER -I./ c18_lcd.p1 busyxlcd.p1 openxlcd.p1 putsxlcd.p1 putrxlcd.p1 readaddr.p1 readdata.p1 setcgram.p1 setddram.p1 wcmdxlcd.p1 writdata.p1</item>
+      <item>mv *.d *.lst *.p1 *.pre *.as *.hxl *.obj *.s* build/</item>
+    </custom_shell_commands>
+    <opened_files>
+      <item>c18_lcd.c</item>
+      <item>/opt/microchip/xc8/v1.32/include/plib/xlcd.h</item>
+    </opened_files>
+  </general>
+  <compiler>
+    <has_custom_arguments>false</has_custom_arguments>
+    <custom_options/>
+    <custom_arguments>
+      <item>--ERRFORMAT</item>
+      <item>--WARNFORMAT</item>
+      <item>--MSGFORMAT</item>
+      <item>--CHIP=%DEVICE</item>
+      <item>--IDE=mplab</item>
+      <item>-Q</item>
+      <item>-C</item>
+      <item>-I$(SRCPATH)</item>
+      <item>%I</item>
+    </custom_arguments>
+    <includes>
+      <item>$(SRCPATH)</item>
+      <item>/home/federico/Projects/piklabworkspace/c18_lcd/</item>
+      <item>/home/federico/Projects/piklabworkspace/c18_lcd/XLCD/</item>
+    </includes>
+  </compiler>
+  <linker>
+    <has_custom_arguments>false</has_custom_arguments>
+    <custom_options/>
+    <custom_arguments>
+      <item>--ERRFORMAT</item>
+      <item>--WARNFORMAT</item>
+      <item>--MSGFORMAT</item>
+      <item>--CHIP=%DEVICE</item>
+      <item>--IDE=mplab</item>
+      <item>-Q</item>
+      <item>-O%O</item>
+      <item>-M%MAP</item>
+      <item>-G%SYM</item>
+      <item>%OBJS</item>
+      <item>%LIBS</item>
+    </custom_arguments>
+  </linker>
+  <librarian>
+    <has_custom_arguments>false</has_custom_arguments>
+    <custom_options/>
+    <custom_arguments>
+      <item>r</item>
+      <item>%O</item>
+      <item>%OBJS</item>
+      <item>%LIBS</item>
+    </custom_arguments>
+  </librarian>
+  <editors/>
+</piklab>

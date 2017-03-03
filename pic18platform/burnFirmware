@@ -1,0 +1,1 @@
+pk2cmd -B/usr/share/pk2/ -pPIC18F46K20 -m -r -w -jn -fpic18platform.hex

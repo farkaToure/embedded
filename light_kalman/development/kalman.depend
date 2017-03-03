@@ -1,0 +1,77 @@
+# depslib dependency file v1.0
+1425667995 source:/home/federico/Projects/piklabworkspace/light_kalman/development/main.c
+	<stdio.h>
+	<stdlib.h>
+	"attitude3d.h"
+	"light_kalman.h"
+	"csv_input.h"
+
+1426279462 /home/federico/Projects/piklabworkspace/light_kalman/development/light_kalman.h
+	<math.h>
+	"vector_xyz.h"
+
+1424271628 /home/federico/Projects/piklabworkspace/light_kalman/development/attitude3d.h
+	<math.h>
+	"vector_xyz.h"
+
+1425589645 /home/federico/Projects/piklabworkspace/light_kalman/development/vector_xyz.h
+
+1425560330 source:/home/federico/Projects/piklabworkspace/light_kalman/development/csvparser.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<errno.h>
+	"csvparser.h"
+
+1425560330 /home/federico/Projects/piklabworkspace/light_kalman/development/csvparser.h
+	<stdio.h>
+
+1425606302 /home/federico/Projects/piklabworkspace/light_kalman/development/csv_input.h
+	<stdio.h>
+	"vector_xyz.h"
+	"csvparser.h"
+
+1425651224 source:/home/federico/Projects/piklabworkspace/light_kalman/development/csv_input.c
+	<stdio.h>
+	<stdlib.h>
+	"vector_xyz.h"
+	"csvparser.h"
+
+1425560330 source:/home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/csvparser.c
+	<stdlib.h>
+	<string.h>
+	<stdio.h>
+	<errno.h>
+	"csvparser.h"
+
+1425560330 /home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/csvparser.h
+	<stdio.h>
+
+1431607457 source:/home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/main.c
+	<stdio.h>
+	<stdlib.h>
+	"attitude3d.h"
+	"light_kalman.h"
+	"csv_input.h"
+
+1424271628 /home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/attitude3d.h
+	<math.h>
+	"vector_xyz.h"
+
+1425589645 /home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/vector_xyz.h
+
+1426279462 /home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/light_kalman.h
+	<math.h>
+	"vector_xyz.h"
+
+1425606302 /home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/csv_input.h
+	<stdio.h>
+	"vector_xyz.h"
+	"csvparser.h"
+
+1431608905 source:/home/fede/lenovo/Projects/piklabworkspace/light_kalman/development/csv_input.c
+	<stdio.h>
+	<stdlib.h>
+	"vector_xyz.h"
+	"csvparser.h"
+

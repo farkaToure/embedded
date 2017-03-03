@@ -1,0 +1,63 @@
+     1: /* $Id: setcgram.c,v 1.1 2003/12/09 22:43:28 GrosbaJ Exp $ */
+     2: #include <p18cxxx.h>
+     3: #include <xlcd.h>
+     4: 
+     5: /********************************************************************
+     6: *       Function Name:  SetCGRamAddr                                *
+     7: *       Return Value:   void                                        *
+     8: *       Parameters:     CGaddr: character generator ram address     *
+     9: *       Description:    This routine sets the character generator   *
+    10: *                       address of the Hitachi HD44780 LCD          *
+    11: *                       controller. The user must check to see if   *
+    12: *                       the LCD controller is busy before calling   *
+    13: *                       this routine.                               *
+    14: ********************************************************************/
+    15: void SetCGRamAddr(unsigned char CGaddr)
+    16: {
+    17: #ifdef BIT8                                     // 8-bit interface
+    18:         TRIS_DATA_PORT = 0;                     // Make data port ouput
+    19:         DATA_PORT = CGaddr | 0b01000000;        // Write cmd and address to port
+    20:         RW_PIN = 0;                             // Set control signals
+    21:         RS_PIN = 0;
+    22:         DelayFor18TCY();
+    23:         E_PIN = 1;                              // Clock cmd and address in
+    24:         DelayFor18TCY();
+    25:         E_PIN = 0;
+    26:         DelayFor18TCY();
+    27:         TRIS_DATA_PORT = 0xff;                  // Make data port inputs
+    28: #else                                           // 4-bit interface
+    29: #ifdef UPPER                                    // Upper nibble interface
+    30:         TRIS_DATA_PORT &= 0x0f;                 // Make nibble input
+    31:         DATA_PORT &= 0x0f;                      // and write upper nibble
+    32:         DATA_PORT |= ((CGaddr | 0b01000000) & 0xf0);
+    33: #else                                           // Lower nibble interface
+    34:         TRIS_DATA_PORT &= 0xf0;                 // Make nibble input
+    35:         DATA_PORT &= 0xf0;                      // and write upper nibble
+    36:         DATA_PORT |= (((CGaddr |0b01000000)>>4) & 0x0f);
+    37: #endif
+    38:         RW_PIN = 0;                             // Set control signals
+    39:         RS_PIN = 0;
+    40:         DelayFor18TCY();
+    41:         E_PIN = 1;                              // Clock cmd and address in
+    42:         DelayFor18TCY();
+    43:         E_PIN = 0;
+    44: #ifdef UPPER                                    // Upper nibble interface
+    45:         DATA_PORT &= 0x0f;                      // Write lower nibble
+    46:         DATA_PORT |= ((CGaddr<<4)&0xf0);
+    47: #else                                           // Lower nibble interface
+    48:         DATA_PORT &= 0xf0;                      // Write lower nibble
+    49:         DATA_PORT |= (CGaddr&0x0f);
+    50: #endif
+    51:         DelayFor18TCY();
+    52:         E_PIN = 1;                              // Clock cmd and address in
+    53:         DelayFor18TCY();
+    54:         E_PIN = 0;
+    55: #ifdef UPPER                                    // Upper nibble interface
+    56:         TRIS_DATA_PORT |= 0xf0;                 // Make inputs
+    57: #else                                           // Lower nibble interface
+    58:         TRIS_DATA_PORT |= 0x0f;                 // Make inputs
+    59: #endif
+    60: #endif
+    61:         return;
+    62: }
+    63: 

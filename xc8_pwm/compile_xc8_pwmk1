@@ -1,0 +1,2 @@
+xc8 --chip=18F46K20 xc8_pwm_k1.c
+mv *.as *.cmf *.cof *.d *.hxl *.p1 *.sdb *.sym *.pre /tmp

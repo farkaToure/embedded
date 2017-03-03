@@ -1,0 +1,198 @@
+
+----------------------------------------------------------------
+Basic Block _entry (df:1 bb:0 lvl:1): loopDepth=0
+
+successors: _return 
+predecessors: 
+dominators: _entry 
+
+defines bitVector :bitvector Size = 5 bSize = 1
+Bits on { }
+
+local defines bitVector :
+pointers Set bitvector :
+inExprs:
+outExprs:
+killedExprs:
+----------------------------------------------------------------
+/home/federico/Projects/piklabworkspace/include/tsmdelay.h(l67:s0:k0:d0:s0)	 _entry($2) :
+/home/federico/Projects/piklabworkspace/include/tsmdelay.h(l67:s0:k1:d0:s0)		proc _cycle_eater [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+/home/federico/Projects/piklabworkspace/include/tsmdelay.h(l80:s0:k2:d0:s0)	 banksel _dvar
+  nop
+delay_big: movlw 191
+  movwf _dvar+0
+delay_inner: nop
+  decfsz _dvar+0, 1
+  goto delay_inner
+  decfsz _dvar+1, 1
+  goto delay_big
+correction: decfsz _dvar+2, 1
+  goto correction
+ /home/federico/Projects/piklabworkspace/include/tsmdelay.h(l80:s0:k3:d0:s0)	 _return($1) :
+/home/federico/Projects/piklabworkspace/include/tsmdelay.h(l80:s0:k4:d0:s0)		eproc _cycle_eater [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+
+----------------------------------------------------------------
+Basic Block _return (df:2 bb:1 lvl:1): loopDepth=0
+
+successors: 
+predecessors: _entry 
+dominators: _entry _return 
+
+defines bitVector :bitvector Size = 5 bSize = 1
+Bits on { }
+
+local defines bitVector :
+pointers Set bitvector :
+inExprs:
+outExprs:
+killedExprs:
+----------------------------------------------------------------
+/home/federico/Projects/piklabworkspace/include/tsmdelay.h(l80:s0:k3:d0:s0)	 _return($1) :
+/home/federico/Projects/piklabworkspace/include/tsmdelay.h(l80:s0:k4:d0:s0)		eproc _cycle_eater [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+
+----------------------------------------------------------------
+Basic Block _return (df:0 bb:3 lvl:1): loopDepth=0 noPath
+
+successors: 
+predecessors: 
+dominators: _return 
+
+defines bitVector :
+local defines bitVector :
+pointers Set bitvector :
+inExprs:
+outExprs:
+killedExprs:
+----------------------------------------------------------------
+mce1.c(l49:s0:k54:d0:s0)	 _return($16) :
+mce1.c(l49:s0:k55:d0:s0)		eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+
+----------------------------------------------------------------
+Basic Block _entry (df:2 bb:0 lvl:1): loopDepth=0
+
+successors: preHeaderLbl0 
+predecessors: 
+dominators: _entry 
+
+defines bitVector :bitvector Size = 57 bSize = 8
+Bits on { (2) (3) (5) (6) (7) (8) (10) (11) }
+
+local defines bitVector :bitvector Size = 57 bSize = 8
+Bits on { (2) (3) (4) (5) (6) (7) (8) (9) (10) (11) }
+
+pointers Set bitvector :
+inExprs:
+outExprs: iTemp3(6) iTemp1(3)
+killedExprs:
+----------------------------------------------------------------
+mce1.c(l31:s0:k0:d0:s0)	 _entry($17) :
+mce1.c(l31:s0:k1:d0:s0)		proc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l35:s0:k2:d0:s0)		iTemp0 [k3 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = (char register)_TRISB [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr}
+mce1.c(l35:s0:k3:d0:s0)		iTemp1 [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = iTemp0 [k3 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} & 0xfffffffd {char literal}
+mce1.c(l35:s0:k4:d0:s0)		_TRISB [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp1 [k4 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register}
+mce1.c(l36:s0:k5:d0:s0)		iTemp2 [k5 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = (char register)_TRISB [k2 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr}
+mce1.c(l36:s0:k6:d0:s0)		iTemp3 [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = iTemp2 [k5 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} & 0xfffffffb {char literal}
+mce1.c(l36:s0:k7:d0:s0)		_TRISB [k2 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp3 [k6 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register}
+mce1.c(l39:s0:k8:d0:s0)		iTemp4 [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {unsigned-char literal}
+mce1.c(l39:s0:k9:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp4 [k8 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l40:s0:k10:d0:s0)		iTemp5 [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x2 {unsigned-char literal}
+mce1.c(l40:s0:k11:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp5 [k9 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l43:s0:k14:d0:s0)	 _whilebody_0($14) :
+mce1.c(l45:s0:k17:d0:s0)		iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} = &[_dvar [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars fixed}]
+mce1.c(l45:s0:k18:d0:s0)		iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed} = iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} + 0x1 {const-unsigned-char literal}
+mce1.c(l45:s0:k19:d0:s0)		*(iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0x0 {unsigned-char literal}
+mce1.c(l45:s0:k21:d0:s0)		iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed} = iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} + 0x2 {const-unsigned-char literal}
+mce1.c(l45:s0:k22:d0:s0)		*(iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0xa2 {unsigned-char literal}
+mce1.c(l45:s0:k26:d0:s0)		iTemp10 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _cycle_eater [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l46:s0:k30:d0:s0)		iTemp11 [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {unsigned-char literal}
+mce1.c(l46:s0:k31:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp11 [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l47:s0:k36:d0:s0)		*(iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0x0 {unsigned-char literal}
+mce1.c(l47:s0:k39:d0:s0)		*(iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0xa2 {unsigned-char literal}
+mce1.c(l47:s0:k43:d0:s0)		iTemp16 [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _cycle_eater [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l48:s0:k47:d0:s0)		iTemp17 [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = (char register)_PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr}
+mce1.c(l48:s0:k48:d0:s0)		iTemp18 [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = iTemp17 [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} & 0xfffffffb {char literal}
+mce1.c(l48:s0:k49:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp18 [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register}
+mce1.c(l49:s0:k50:d0:s0)		iTemp19 [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} ^ 0x2 {unsigned-char literal}
+mce1.c(l49:s0:k51:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp19 [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l49:s0:k52:d0:s0)		 goto _whilebody_0($14)
+mce1.c(l49:s0:k54:d0:s0)	 _return($16) :
+mce1.c(l49:s0:k55:d0:s0)		eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+
+----------------------------------------------------------------
+Basic Block preHeaderLbl0 (df:3 bb:1 lvl:1): loopDepth=0
+
+successors: _whilebody_0 
+predecessors: _entry 
+dominators: _entry preHeaderLbl0 
+
+defines bitVector :bitvector Size = 57 bSize = 8
+Bits on { }
+
+local defines bitVector :
+pointers Set bitvector :
+inExprs: iTemp1(3) iTemp3(6)
+outExprs: iTemp3(6) iTemp1(3)
+killedExprs:
+----------------------------------------------------------------
+mce1.c(l43:s0:k56:d0:s0)	 preHeaderLbl0($18) :
+mce1.c(l43:s0:k14:d0:s0)	 _whilebody_0($14) :
+mce1.c(l45:s0:k17:d0:s0)		iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} = &[_dvar [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars fixed}]
+mce1.c(l45:s0:k18:d0:s0)		iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed} = iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} + 0x1 {const-unsigned-char literal}
+mce1.c(l45:s0:k19:d0:s0)		*(iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0x0 {unsigned-char literal}
+mce1.c(l45:s0:k21:d0:s0)		iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed} = iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} + 0x2 {const-unsigned-char literal}
+mce1.c(l45:s0:k22:d0:s0)		*(iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0xa2 {unsigned-char literal}
+mce1.c(l45:s0:k26:d0:s0)		iTemp10 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _cycle_eater [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l46:s0:k30:d0:s0)		iTemp11 [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {unsigned-char literal}
+mce1.c(l46:s0:k31:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp11 [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l47:s0:k36:d0:s0)		*(iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0x0 {unsigned-char literal}
+mce1.c(l47:s0:k39:d0:s0)		*(iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0xa2 {unsigned-char literal}
+mce1.c(l47:s0:k43:d0:s0)		iTemp16 [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _cycle_eater [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l48:s0:k47:d0:s0)		iTemp17 [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = (char register)_PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr}
+mce1.c(l48:s0:k48:d0:s0)		iTemp18 [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = iTemp17 [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} & 0xfffffffb {char literal}
+mce1.c(l48:s0:k49:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp18 [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register}
+mce1.c(l49:s0:k50:d0:s0)		iTemp19 [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} ^ 0x2 {unsigned-char literal}
+mce1.c(l49:s0:k51:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp19 [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l49:s0:k52:d0:s0)		 goto _whilebody_0($14)
+mce1.c(l49:s0:k54:d0:s0)	 _return($16) :
+mce1.c(l49:s0:k55:d0:s0)		eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+
+----------------------------------------------------------------
+Basic Block _whilebody_0 (df:4 bb:2 lvl:1): loopDepth=1 partOfLoop
+
+successors: _whilebody_0 
+predecessors: preHeaderLbl0 
+dominators: _entry preHeaderLbl0 _whilebody_0 
+
+defines bitVector :bitvector Size = 57 bSize = 8
+Bits on { (17) (18) (21) (26) (30) (43) (47) (48) (50) (51) }
+
+local defines bitVector :bitvector Size = 57 bSize = 8
+Bits on { (17) (18) (21) (26) (30) (31) (43) (47) (48) (49) (50) (51) }
+
+pointers Set bitvector :bitvector Size = 57 bSize = 8
+Bits on { (13) (16) }
+
+inExprs: iTemp1(3) iTemp3(6)
+outExprs: iTemp18(48) iTemp9(21) iTemp7(18) iTemp6(17) iTemp3(6) iTemp1(3)
+killedExprs:
+----------------------------------------------------------------
+mce1.c(l43:s0:k14:d0:s0)	 _whilebody_0($14) :
+mce1.c(l45:s0:k17:d0:s0)		iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} = &[_dvar [k10 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars fixed}]
+mce1.c(l45:s0:k18:d0:s0)		iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed} = iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} + 0x1 {const-unsigned-char literal}
+mce1.c(l45:s0:k19:d0:s0)		*(iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0x0 {unsigned-char literal}
+mce1.c(l45:s0:k21:d0:s0)		iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed} = iTemp6 [k11 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{struct dvars near* fixed} + 0x2 {const-unsigned-char literal}
+mce1.c(l45:s0:k22:d0:s0)		*(iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0xa2 {unsigned-char literal}
+mce1.c(l45:s0:k26:d0:s0)		iTemp10 [k18 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _cycle_eater [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l46:s0:k30:d0:s0)		iTemp11 [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} | 0x4 {unsigned-char literal}
+mce1.c(l46:s0:k31:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp11 [k19 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l47:s0:k36:d0:s0)		*(iTemp7 [k13 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0x0 {unsigned-char literal}
+mce1.c(l47:s0:k39:d0:s0)		*(iTemp9 [k16 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char near* fixed}) := 0xa2 {unsigned-char literal}
+mce1.c(l47:s0:k43:d0:s0)		iTemp16 [k26 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void fixed} = call _cycle_eater [k17 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}
+mce1.c(l48:s0:k47:d0:s0)		iTemp17 [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = (char register)_PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr}
+mce1.c(l48:s0:k48:d0:s0)		iTemp18 [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} = iTemp17 [k27 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register} & 0xfffffffb {char literal}
+mce1.c(l48:s0:k49:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp18 [k28 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{char register}
+mce1.c(l49:s0:k50:d0:s0)		iTemp19 [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register} = _PORTB [k7 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} ^ 0x2 {unsigned-char literal}
+mce1.c(l49:s0:k51:d0:s0)		_PORTB [k7 lr0:0 so:0]{ ia1 a2p0 re0 rm0 nos0 ru0 dp0}{volatile-unsigned-char sfr} := iTemp19 [k29 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{unsigned-char register}
+mce1.c(l49:s0:k52:d0:s0)		 goto _whilebody_0($14)
+mce1.c(l49:s0:k54:d0:s0)	 _return($16) :
+mce1.c(l49:s0:k55:d0:s0)		eproc _main [k1 lr0:0 so:0]{ ia0 a2p0 re0 rm0 nos0 ru0 dp0}{void function ( ) fixed}

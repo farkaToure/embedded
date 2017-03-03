@@ -1,0 +1,65 @@
+     1: /* $Id: writdata.c,v 1.1 2003/12/09 22:43:28 GrosbaJ Exp $ */
+     2: #include <p18cxxx.h>
+     3: #include <xlcd.h>
+     4: 
+     5: /********************************************************************
+     6: *       Function Name:  WriteDataXLCD                               *
+     7: *       Return Value:   void                                        *
+     8: *       Parameters:     data: data byte to be written to LCD        *
+     9: *       Description:    This routine writes a data byte to the      *
+    10: *                       Hitachi HD44780 LCD controller. The user    *
+    11: *                       must check to see if the LCD controller is  *
+    12: *                       busy before calling this routine. The data  *
+    13: *                       is written to the character generator RAM or*
+    14: *                       the display data RAM depending on what the  *
+    15: *                       previous SetxxRamAddr routine was called.   *
+    16: ********************************************************************/
+    17: void WriteDataXLCD(char data)
+    18: {
+    19: #ifdef BIT8                             // 8-bit interface
+    20:         TRIS_DATA_PORT = 0;             // Make port output
+    21:         DATA_PORT = data;               // Write data to port
+    22:         RS_PIN = 1;                     // Set control bits
+    23:         RW_PIN = 0;
+    24:         DelayFor18TCY();
+    25:         E_PIN = 1;                      // Clock data into LCD
+    26:         DelayFor18TCY();
+    27:         E_PIN = 0;
+    28:         RS_PIN = 0;                     // Reset control bits
+    29:         TRIS_DATA_PORT = 0xff;          // Make port input
+    30: #else                                   // 4-bit interface
+    31: #ifdef UPPER                            // Upper nibble interface
+    32:         TRIS_DATA_PORT &= 0x0f;
+    33:         DATA_PORT &= 0x0f;
+    34:         DATA_PORT |= data&0xf0;
+    35: #else                                   // Lower nibble interface
+    36:         TRIS_DATA_PORT &= 0xf0;
+    37:         DATA_PORT &= 0xf0;
+    38:         DATA_PORT |= ((data>>4)&0x0f);
+    39: #endif
+    40:         RS_PIN = 1;                     // Set control bits
+    41:         RW_PIN = 0;
+    42:         DelayFor18TCY();
+    43:         E_PIN = 1;                      // Clock nibble into LCD
+    44:         DelayFor18TCY();
+    45:         E_PIN = 0;
+    46: #ifdef UPPER                            // Upper nibble interface
+    47:         DATA_PORT &= 0x0f;
+    48:         DATA_PORT |= ((data<<4)&0xf0);
+    49: #else                                   // Lower nibble interface
+    50:         DATA_PORT &= 0xf0;
+    51:         DATA_PORT |= (data&0x0f);
+    52: #endif
+    53:         DelayFor18TCY();
+    54:         E_PIN = 1;                      // Clock nibble into LCD
+    55:         DelayFor18TCY();
+    56:         E_PIN = 0;
+    57: #ifdef UPPER                            // Upper nibble interface
+    58:         TRIS_DATA_PORT |= 0xf0;
+    59: #else                                   // Lower nibble interface
+    60:         TRIS_DATA_PORT |= 0x0f;
+    61: #endif
+    62: #endif
+    63:         return;
+    64: }
+    65: 

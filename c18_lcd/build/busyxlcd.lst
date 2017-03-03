@@ -1,0 +1,72 @@
+     1: /* $Id: busyxlcd.c,v 1.1 2003/12/09 22:43:28 GrosbaJ Exp $ */
+     2: #include <p18cxxx.h>
+     3: #include <xlcd.h>
+     4: 
+     5: /********************************************************************
+     6: *       Function Name:  BusyXLCD                                    *
+     7: *       Return Value:   char: busy status of LCD controller         *
+     8: *       Parameters:     void                                        *
+     9: *       Description:    This routine reads the busy status of the   *
+    10: *                       Hitachi HD44780 LCD controller.             *
+    11: ********************************************************************/
+    12: unsigned char BusyXLCD(void)
+    13: {
+    14: /*        RW_PIN = 1;                     // Set the control bits for read
+    15:         RS_PIN = 0;
+    16:         DelayFor18TCY();
+    17:         E_PIN = 1;                      // Clock in the command
+    18:         DelayFor18TCY();
+    19: #ifdef BIT8                             // 8-bit interface
+    20:         if(DATA_PORT&0x80)                      // Read bit 7 (busy bit)
+    21:         {                               // If high
+    22:                 E_PIN = 0;              // Reset clock line
+    23:                 RW_PIN = 0;             // Reset control line
+    24:                 return 1;               // Return TRUE
+    25:         }
+    26:         else                            // Bit 7 low
+    27:         {
+    28:                 E_PIN = 0;                  // Reset clock line
+    29:                 RW_PIN = 0;             // Reset control line
+    30:                 return 0;               // Return FALSE
+    31:         }
+    32: #else                                   // 4-bit interface
+    33: #ifdef UPPER                            // Upper nibble interface
+    34:         if(DATA_PORT&0x80)
+    35: #else                                   // Lower nibble interface
+    36:         if(DATA_PORT&0x08)
+    37: #endif
+    38:         {
+    39:                 E_PIN = 0;              // Reset clock line
+    40:                 DelayFor18TCY();
+    41:                 E_PIN = 1;              // Clock out other nibble
+    42:                 DelayFor18TCY();
+    43:                 E_PIN = 0;
+    44:                 RW_PIN = 0;             // Reset control line
+    45:                 return 1;               // Return TRUE
+    46:         }
+    47:         else                            // Busy bit is low
+    48:         {
+    49:                 E_PIN = 0;              // Reset clock line
+    50:                 DelayFor18TCY();
+    51:                 E_PIN = 1;              // Clock out other nibble
+    52:                 DelayFor18TCY();
+    53:                 E_PIN = 0;
+    54:                 RW_PIN = 0;             // Reset control line
+    55:                 return 0;               // Return FALSE
+    56:         }
+    57: #endif
+    58: */
+    59: /* Si utiliza la placa Student debe colocar estos dos
+    60:         retardos para que el codigo funcione, ya que la 
+    61:         libreria del LCD del C18 esta diseñado para displays 
+    62:         que tienen conectados el pin de control RW para leer 
+    63:         el estado del Busy flag.
+    64:    En cambio si utiliza un LCD en donde el RW se encuentra
+    65:         conecto al PIC, puede utilizar la funcion original del
+    66:         C18 que se encuentra arriba de este comentario
+    67: */
+    68:         DelayFor18TCY();        // Retardos donde esperamos a que
+    69:         DelayFor18TCY();        // el LCD se desocupe
+    70:         return 0;
+    71: }
+    72: 

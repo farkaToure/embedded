@@ -1,0 +1,10 @@
+_initialize_pwm: CODE, 710 0 312
+_initialize_pwm_pulse: CODE, 1372 0 62
+_main: CODE, 1434 0 58
+_handle_tick: CODE, 28 0 682
+i2___wmul: CODE, 1530 0 38
+__initialization: CODE, 1568 0 12
+_isr: CODE, 8 0 1364
+_initialize: CODE, 1022 0 198
+___wmul: CODE, 1492 0 38
+Total: 2764

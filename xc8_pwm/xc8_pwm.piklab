@@ -1,0 +1,50 @@
+<!DOCTYPE piklab>
+<piklab>
+  <general>
+    <device>18F46K20</device>
+    <tool>custom</tool>
+    <programmer>custom</programmer>
+    <files>
+      <item>xc8_pwm.c</item>
+    </files>
+    <description/>
+    <version>0.1</version>
+    <output_type>executable</output_type>
+    <custom_shell_commands>
+      <item>xc8 --chip=18F46K20 xc8_pwm.c</item>
+    </custom_shell_commands>
+    <opened_files>
+      <item>xc8_pwm_k3.c</item>
+      <item>xc8_pwm_2.c</item>
+      <item>xc8_pwm_1.c</item>
+      <item>xc8_pwm_k1.c</item>
+    </opened_files>
+  </general>
+  <compiler>
+    <has_custom_arguments>true</has_custom_arguments>
+    <custom_options/>
+    <warning_level>0</warning_level>
+    <custom_arguments>
+      <item>xc8 --chip=18F46F20 xc8_pwm.c</item>
+    </custom_arguments>
+    <includes>
+      <item>$(SRCPATH)</item>
+    </includes>
+  </compiler>
+  <linker>
+    <has_custom_arguments>false</has_custom_arguments>
+    <custom_options/>
+    <custom_libraries/>
+    <format>inhx32</format>
+    <custom_arguments>
+      <item>/k%LKR_PATH</item>
+      <item>%LKR_NAME</item>
+      <item>/l</item>
+      <item>/o%COFF</item>
+      <item>/m%MAP</item>
+      <item>%OBJS</item>
+      <item>%LIBS</item>
+    </custom_arguments>
+  </linker>
+  <editors/>
+</piklab>
