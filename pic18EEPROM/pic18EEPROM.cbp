@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="pic18EEPROM" />
+		<Option makefile="Makefile.mak" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="xc8" />
+		<Build>
+			<Target title="Release">
+				<Option output="bin/Release/pic18EEPROM" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="xc8" />
+			</Target>
+			<Target title="BurnFirmware">
+				<Option output="pic18EEPROM" prefix_auto="1" extension_auto="1" />
+				<Option type="1" />
+				<Option compiler="xc8" />
+				<Option use_console_runner="0" />
+			</Target>
+		</Build>
+		<Unit filename="Makefile.mak">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="macros.h">
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="pic18EEPROM.c">
+			<Option compilerVar="CC" />
+			<Option target="Release" />
+		</Unit>
+		<Unit filename="platform.h">
+			<Option target="Release" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
