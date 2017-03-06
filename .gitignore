@@ -1,0 +1,16 @@
+*.sym
+*.sdb
+*.pre
+*.p1
+*.hxl
+*.hex
+*.d
+*.cof
+*.cmf
+*.as
+*.pre
+*.rlf
+*.as
+*.obj
+*.lst
+*.map
