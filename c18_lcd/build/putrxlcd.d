@@ -1,1 +1,0 @@
- putrxlcd.d  putrxlcd.p1:  ./XLCD/putrxlcd.c

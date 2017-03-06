@@ -1,1 +1,0 @@
- setddram.d  setddram.p1:  ./XLCD/setddram.c

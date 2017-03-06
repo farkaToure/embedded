@@ -1,1 +1,0 @@
- readdata.d  readdata.p1:  ./XLCD/readdata.c
